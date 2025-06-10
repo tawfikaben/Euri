@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France | EuroVista</title>
+    <style>
+        /* نفس أنماط صفحة إيطاليا */
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("country-map"), {
+                center: { lat: 46.2276, lng: 2.2137 },
+                zoom: 6,
+            });
+            
+            const locations = [
+                {lat: 48.8566, lng: 2.3522, title: "Paris"},
+                {lat: 43.2965, lng: 5.3698, title: "Marseille"},
+                {lat: 45.7640, lng: 4.8357, title: "Lyon"},
+                {lat: 43.7102, lng: 7.2620, title: "Nice"},
+                {lat: 44.8378, lng: -0.5792, title: "Bordeaux"}
+            ];
+            
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.title
+                });
+            });
+            
+            // باقي كود الخريطة كما في إيطاليا
+        }
+    </script>
+</head>
+<body>
+    <!-- نفس الهيدر من صفحة إيطاليا -->
+
+    <div class="country-header" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <h1>France</h1>
+    </div>
+
+    <div class="container">
+        <div class="country-content">
+            <main>
+                <section class="cultural-info">
+                    <h2>Cultural Information</h2>
+                    <p>France is renowned for its sophisticated culture, exquisite cuisine, and rich history. From the romantic streets of Paris to the sun-kissed beaches of the French Riviera, France offers diverse experiences.</p>
+                    
+                    <h3>Language</h3>
+                    <p>French is the official language. English is understood in tourist areas but learning basic French phrases is appreciated.</p>
+                    
+                    <h3>Cuisine</h3>
+                    <p>French cuisine is world-famous, featuring dishes like croissants, coq au vin, boeuf bourguignon, and a vast array of cheeses and wines.</p>
+                    
+                    <h3>Traditions</h3>
+                    <p>France celebrates Bastille Day (July 14), Christmas markets, and numerous wine festivals. The French take great pride in their art, fashion, and intellectual traditions.</p>
+                </section>
+                
+                <section class="historical-sites">
+                    <h2>Historical Sites</h2>
+                    
+                    <h3>Eiffel Tower, Paris</h3>
+                    <p>The iconic iron tower built for the 1889 World's Fair, now a symbol of France.</p>
+                    
+                    <h3>Mont Saint-Michel</h3>
+                    <p>A medieval abbey perched on a rocky island in Normandy, accessible at low tide.</p>
+                    
+                    <h3>Palace of Versailles</h3>
+                    <p>The opulent royal palace of Louis XIV, with its magnificent Hall of Mirrors and gardens.</p>
+                    
+                    <h3>Louvre Museum</h3>
+                    <p>The world's largest art museum, home to the Mona Lisa and Venus de Milo.</p>
+                </section>
+                
+                <!-- نفس قسم الخريطة والاتجاهات كما في إيطاليا -->
+                
+                <section class="hotels">
+                    <h2>Recommended Hotels</h2>
+                    
+                    <div class="hotel-card">
+                        <h3>Hôtel Ritz Paris</h3>
+                        <div class="hotel-rating">★★★★★</div>
+                        <p>Legendary luxury hotel on Place Vendôme, frequented by celebrities and royalty.</p>
+                        <p>Price: €800-€2000 per night</p>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h3>Le Negresco, Nice</h3>
+                        <div class="hotel-rating">★★★★★</div>
+                        <p>Iconic beachfront hotel with unique art collection and panoramic sea views.</p>
+                        <p>Price: €300-€1000 per night</p>
+                    </div>
+                </section>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="quick-facts">
+                    <h3>Quick Facts</h3>
+                    <ul>
+                        <li><strong>Capital:</strong> Paris</li>
+                        <li><strong>Population:</strong> 67 million</li>
+                        <li><strong>Currency:</strong> Euro (€)</li>
+                        <li><strong>Language:</strong> French</li>
+                        <li><strong>Time Zone:</strong> CET (UTC+1)</li>
+                        <li><strong>Best Time to Visit:</strong> April-June, September-October</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- نفس الفوتر من صفحة إيطاليا -->
+</body>
+</html>
