@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy | EuroVista</title>
+    <style>
+        /* أنماط الصفحة الرئيسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f7f4;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Garamond', serif;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #8b6b4a;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8b6b4a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #6d5338;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: #d9d9d9;
+            padding: 60px 0 30px;
+        }
+        
+        /* أنماط صفحة الدولة */
+        .country-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .country-header h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .country-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .cultural-info, .historical-sites, .hotels {
+            margin-bottom: 40px;
+        }
+        
+        .cultural-info h2, .historical-sites h2, .hotels h2, .map-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #8b6b4a;
+            padding-bottom: 10px;
+        }
+        
+        .map-container {
+            margin-bottom: 40px;
+        }
+        
+        #country-map {
+            height: 500px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .hotel-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .hotel-card h3 {
+            color: #8b6b4a;
+            margin-bottom: 10px;
+        }
+        
+        .hotel-rating {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 4px;
+        }
+        
+        .quick-facts h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .quick-facts ul {
+            list-style: none;
+        }
+        
+        .quick-facts ul li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .quick-facts ul li strong {
+            display: inline-block;
+            width: 120px;
+            color: #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .country-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .country-header h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("country-map"), {
+                center: { lat: 41.8719, lng: 12.5674 },
+                zoom: 6,
+            });
+            
+            const locations = [
+                {lat: 41.9028, lng: 12.4964, title: "Rome"},
+                {lat: 45.4408, lng: 12.3155, title: "Venice"},
+                {lat: 43.7696, lng: 11.2558, title: "Florence"},
+                {lat: 40.8518, lng: 14.2681, title: "Naples"},
+                {lat: 45.4642, lng: 9.1900, title: "Milan"}
+            ];
+            
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.title
+                });
+            });
+            
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+            
+            document.getElementById("get-directions").addEventListener("click", function() {
+                calculateAndDisplayRoute(directionsService, directionsRenderer);
+            });
+        }
+        
+        function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+            
+            directionsService.route(
+                {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING,
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+                        const route = response.routes[0];
+                        const duration = route.legs[0].duration.text;
+                        document.getElementById("travel-time").textContent = `Estimated travel time: ${duration}`;
+                    } else {
+                        window.alert("Directions request failed due to " + status);
+                    }
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EuroVista</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#countries">Countries</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="country-header">
+        <h1>Italy</h1>
+    </div>
+
+    <div class="container">
+        <div class="country-content">
+            <main>
+                <section class="cultural-info">
+                    <h2>Cultural Information</h2>
+                    <p>Italy is a country in Southern Europe with a rich cultural heritage that has influenced the world for centuries. Known as the birthplace of the Renaissance, Italy boasts an unparalleled collection of art, architecture, and historical sites.</p>
+                    
+                    <h3>Language</h3>
+                    <p>The official language is Italian, with many regional dialects. English is widely understood in tourist areas.</p>
+                    
+                    <h3>Cuisine</h3>
+                    <p>Italian cuisine is famous worldwide, with regional specialties like pizza from Naples, pasta from Bologna, and risotto from Milan. Italian meals are important social events, often lasting several hours.</p>
+                    
+                    <h3>Traditions</h3>
+                    <p>Italians celebrate numerous festivals throughout the year, including Carnevale in Venice, the Palio horse race in Siena, and various religious processions. Family is central to Italian culture.</p>
+                </section>
+                
+                <section class="historical-sites">
+                    <h2>Historical Sites</h2>
+                    
+                    <h3>Colosseum, Rome</h3>
+                    <p>The iconic amphitheater that could hold up to 80,000 spectators for gladiatorial contests and public spectacles.</p>
+                    
+                    <h3>Pompeii</h3>
+                    <p>The ancient Roman city preserved under volcanic ash from the eruption of Mount Vesuvius in 79 AD.</p>
+                    
+                    <h3>Leaning Tower of Pisa</h3>
+                    <p>The famous bell tower known for its unintended tilt, located in the Piazza dei Miracoli.</p>
+                    
+                    <h3>Florence Cathedral</h3>
+                    <p>A masterpiece of Gothic architecture with its iconic dome engineered by Filippo Brunelleschi.</p>
+                </section>
+                
+                <section class="map-container">
+                    <h2>Map & Directions</h2>
+                    <div id="country-map"></div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3>Get Directions</h3>
+                        <div>
+                            <label for="start">From:</label>
+                            <input type="text" id="start" placeholder="Your location">
+                            
+                            <label for="end">To:</label>
+                            <input type="text" id="end" placeholder="Destination in Italy">
+                            
+                            <button id="get-directions" class="btn">Get Directions</button>
+                            <div id="travel-time" style="margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="hotels">
+                    <h2>Recommended Hotels</h2>
+                    
+                    <div class="hotel-card">
+                        <h3>Hotel Hassler Roma</h3>
+                        <div class="hotel-rating">★★★★★</div>
+                        <p>Located at the top of the Spanish Steps, this luxury hotel offers stunning views of Rome.</p>
+                        <p>Price: €400-€1000 per night</p>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h3>Belmond Hotel Cipriani, Venice</h3>
+                        <div class="hotel-rating">★★★★★</div>
+                        <p>A luxurious retreat with a private gondola dock and saltwater pool overlooking the lagoon.</p>
+                        <p>Price: €500-€1200 per night</p>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h3>Hotel Brunelleschi, Florence</h3>
+                        <div class="hotel-rating">★★★★</div>
+                        <p>Set in a historic Byzantine tower, this hotel is steps away from the Duomo.</p>
+                        <p>Price: €250-€600 per night</p>
+                    </div>
+                </section>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="quick-facts">
+                    <h3>Quick Facts</h3>
+                    <ul>
+                        <li><strong>Capital:</strong> Rome</li>
+                        <li><strong>Population:</strong> 60 million</li>
+                        <li><strong>Currency:</strong> Euro (€)</li>
+                        <li><strong>Language:</strong> Italian</li>
+                        <li><strong>Time Zone:</strong> CET (UTC+1)</li>
+                        <li><strong>Best Time to Visit:</strong> April-June, September-October</li>
+                        <li><strong>Visa Requirements:</strong> Schengen Visa</li>
+                        <li><strong>Emergency Number:</strong> 112</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Travel Tips</h3>
+                    <ul>
+                        <li>Validate train tickets before boarding</li>
+                        <li>Dress modestly when visiting churches</li>
+                        <li>Try the local aperitivo tradition</li>
+                        <li>Learn basic Italian phrases</li>
+                        <li>Be aware of pickpockets in tourist areas</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#countries">Countries</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="italy.html">Italy</a></li>
+                        <li><a href="france.html">France</a></li>
+                        <li><a href="spain.html">Spain</a></li>
+                        <li><a href="germany.html">Germany</a></li>
+                        <li><a href="greece.html">Greece</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Travel Tips</a></li>
+                        <li><a href="#">Visa Requirements</a></li>
+                        <li><a href="#">Best Times to Visit</a></li>
+                        <li><a href="#">Travel Costs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@eurovista.com</li>
+                        <li>Phone: +123456789</li>
+                        <li>
+                            <a href="#">Facebook</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EuroVista. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
