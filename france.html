@@ -5,40 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>France | EuroVista</title>
     <style>
-        /* نفس أنماط صفحة إيطاليا */
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <script>
-        function initMap() {
-            const map = new google.maps.Map(document.getElementById("country-map"), {
-                center: { lat: 46.2276, lng: 2.2137 },
-                zoom: 6,
-            });
-            
-            const locations = [
-                {lat: 48.8566, lng: 2.3522, title: "Paris"},
-                {lat: 43.2965, lng: 5.3698, title: "Marseille"},
-                {lat: 45.7640, lng: 4.8357, title: "Lyon"},
-                {lat: 43.7102, lng: 7.2620, title: "Nice"},
-                {lat: 44.8378, lng: -0.5792, title: "Bordeaux"}
-            ];
-            
-            locations.forEach(location => {
-                new google.maps.Marker({
-                    position: location,
-                    map: map,
-                    title: location.title
-                });
-            });
-            
-            // باقي كود الخريطة كما في إيطاليا
+        /* أنماط CSS مطابقة لصفحة إيطاليا */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #333; background-color: #f9f7f4; }
+        h1, h2, h3 { font-family: 'Garamond', serif; font-weight: normal; letter-spacing: 0.5px; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        header { background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e1e1e1; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { font-size: 28px; font-weight: bold; color: #2c3e50; letter-spacing: 1px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { text-decoration: none; color: #555; font-size: 16px; transition: color 0.3s; }
+        .nav-links a:hover { color: #8b6b4a; }
+        .btn { display: inline-block; background-color: #8b6b4a; color: white; padding: 12px 30px; border-radius: 2px; text-decoration: none; font-size: 16px; letter-spacing: 1px; transition: background-color 0.3s; }
+        .btn:hover { background-color: #6d5338; }
+        footer { background-color: #2c3e50; color: #d9d9d9; padding: 60px 0 30px; }
+        
+        .country-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
         }
-    </script>
+        
+        .country-header h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .country-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .historical-site {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .historical-site img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .hotel-card {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .hotel-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .country-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .historical-site, .hotel-card {
+                flex-direction: column;
+            }
+            
+            .historical-site img, .hotel-card img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- نفس الهيدر من صفحة إيطاليا -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EuroVista</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#countries">Countries</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="country-header" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+    <div class="country-header">
         <h1>France</h1>
     </div>
 
@@ -48,6 +133,12 @@
                 <section class="cultural-info">
                     <h2>Cultural Information</h2>
                     <p>France is renowned for its sophisticated culture, exquisite cuisine, and rich history. From the romantic streets of Paris to the sun-kissed beaches of the French Riviera, France offers diverse experiences.</p>
+                    
+                    <div class="image-gallery">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Eiffel Tower">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="French cuisine">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Paris streets">
+                    </div>
                     
                     <h3>Language</h3>
                     <p>French is the official language. English is understood in tourist areas but learning basic French phrases is appreciated.</p>
@@ -62,36 +153,52 @@
                 <section class="historical-sites">
                     <h2>Historical Sites</h2>
                     
-                    <h3>Eiffel Tower, Paris</h3>
-                    <p>The iconic iron tower built for the 1889 World's Fair, now a symbol of France.</p>
+                    <div class="historical-site">
+                        <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Eiffel Tower">
+                        <div>
+                            <h3>Eiffel Tower, Paris</h3>
+                            <p>The iconic iron tower built for the 1889 World's Fair, now a symbol of France.</p>
+                        </div>
+                    </div>
                     
-                    <h3>Mont Saint-Michel</h3>
-                    <p>A medieval abbey perched on a rocky island in Normandy, accessible at low tide.</p>
+                    <div class="historical-site">
+                        <img src="https://images.unsplash.com/photo-1580048915913-4f8f5cb481c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Mont Saint-Michel">
+                        <div>
+                            <h3>Mont Saint-Michel</h3>
+                            <p>A medieval abbey perched on a rocky island in Normandy, accessible at low tide.</p>
+                        </div>
+                    </div>
                     
-                    <h3>Palace of Versailles</h3>
-                    <p>The opulent royal palace of Louis XIV, with its magnificent Hall of Mirrors and gardens.</p>
-                    
-                    <h3>Louvre Museum</h3>
-                    <p>The world's largest art museum, home to the Mona Lisa and Venus de Milo.</p>
+                    <div class="historical-site">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Versailles">
+                        <div>
+                            <h3>Palace of Versailles</h3>
+                            <p>The opulent royal palace of Louis XIV, with its magnificent Hall of Mirrors and gardens.</p>
+                        </div>
+                    </div>
                 </section>
-                
-                <!-- نفس قسم الخريطة والاتجاهات كما في إيطاليا -->
                 
                 <section class="hotels">
                     <h2>Recommended Hotels</h2>
                     
                     <div class="hotel-card">
-                        <h3>Hôtel Ritz Paris</h3>
-                        <div class="hotel-rating">★★★★★</div>
-                        <p>Legendary luxury hotel on Place Vendôme, frequented by celebrities and royalty.</p>
-                        <p>Price: €800-€2000 per night</p>
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Ritz Paris">
+                        <div>
+                            <h3>Hôtel Ritz Paris</h3>
+                            <div class="hotel-rating">★★★★★</div>
+                            <p>Legendary luxury hotel on Place Vendôme, frequented by celebrities and royalty.</p>
+                            <p><strong>Price:</strong> €800-€2000 per night</p>
+                        </div>
                     </div>
                     
                     <div class="hotel-card">
-                        <h3>Le Negresco, Nice</h3>
-                        <div class="hotel-rating">★★★★★</div>
-                        <p>Iconic beachfront hotel with unique art collection and panoramic sea views.</p>
-                        <p>Price: €300-€1000 per night</p>
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Le Negresco">
+                        <div>
+                            <h3>Le Negresco, Nice</h3>
+                            <div class="hotel-rating">★★★★★</div>
+                            <p>Iconic beachfront hotel with unique art collection and panoramic sea views.</p>
+                            <p><strong>Price:</strong> €300-€1000 per night</p>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -105,13 +212,46 @@
                         <li><strong>Currency:</strong> Euro (€)</li>
                         <li><strong>Language:</strong> French</li>
                         <li><strong>Time Zone:</strong> CET (UTC+1)</li>
-                        <li><strong>Best Time to Visit:</strong> April-June, September-October</li>
                     </ul>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Must-Try Foods</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px;">
+                        <div style="text-align: center;">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Croissant" style="width:70px; height:70px; object-fit:cover; border-radius:50%;">
+                            <p style="font-size:12px;">Croissant</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cheese" style="width:70px; height:70px; object-fit:cover; border-radius:50%;">
+                            <p style="font-size:12px;">Cheese</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Wine" style="width:70px; height:70px; object-fit:cover; border-radius:50%;">
+                            <p style="font-size:12px;">Wine</p>
+                        </div>
+                    </div>
                 </div>
             </aside>
         </div>
     </div>
 
-    <!-- نفس الفوتر من صفحة إيطاليا -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="italy.html">Italy</a></li>
+                        <li><a href="france.html">France</a></li>
+                        <li><a href="spain.html">Spain</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EuroVista. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
