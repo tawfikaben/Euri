@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuroVista | Classic European Travel Guide</title>
+    <style>
+        /* Classic CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Timeless Typography */
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f7f4;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Garamond', serif;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Classic Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Traditional Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #8b6b4a;
+        }
+        
+        /* Elegant Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8b6b4a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #6d5338;
+        }
+        
+        /* Classic Countries Grid */
+        .countries {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: #8b6b4a;
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .country-card {
+            background-color: white;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid #e1e1e1;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .country-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .country-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .country-card:hover .country-image img {
+            transform: scale(1.05);
+        }
+        
+        .country-info {
+            padding: 25px;
+        }
+        
+        .country-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .country-info p {
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 15px;
+        }
+        
+        .country-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        /* Timeless Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #d9d9d9;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            border-top: 1px solid #3d5166;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Classic Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EuroVista</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#countries">Countries</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Elegant Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Classic Europe</h1>
+            <p>Your timeless guide to the continent's most enchanting destinations</p>
+            <a href="#countries" class="btn">Explore Countries</a>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="countries" id="countries">
+        <div class="container">
+            <h2 class="section-title">European Countries</h2>
+            <div class="countries-grid">
+                <!-- Country 1: Italy -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Italy+Image'" alt="Italy">
+                    </div>
+                    <div class="country-info">
+                        <h3>Italy</h3>
+                        <p>Land of art, history, and culinary excellence. Explore Rome, Venice, and Florence's Renaissance treasures.</p>
+                        <div class="country-meta">
+                            <span>Capital: Rome</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="italy.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 2: France -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=France+Image'" alt="France">
+                    </div>
+                    <div class="country-info">
+                        <h3>France</h3>
+                        <p>Country of elegance and romance. Visit the Eiffel Tower, Louvre Museum, and Versailles Palace.</p>
+                        <div class="country-meta">
+                            <span>Capital: Paris</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="france.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 3: Spain -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1520967806029-9266772a8439?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Spain+Image'" alt="Spain">
+                    </div>
+                    <div class="country-info">
+                        <h3>Spain</h3>
+                        <p>Vibrant culture, stunning architecture, and sunny beaches. Discover Barcelona, Madrid, and Andalusia.</p>
+                        <div class="country-meta">
+                            <span>Capital: Madrid</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="spain.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 4: Germany -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Germany+Image'" alt="Germany">
+                    </div>
+                    <div class="country-info">
+                        <h3>Germany</h3>
+                        <p>Where history meets modernity. Explore Berlin, Munich, and the fairy-tale castles of Bavaria.</p>
+                        <div class="country-meta">
+                            <span>Capital: Berlin</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="germany.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 5: Greece -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Greece+Image'" alt="Greece">
+                    </div>
+                    <div class="country-info">
+                        <h3>Greece</h3>
+                        <p>Cradle of Western civilization. Enjoy Santorini's sunsets, Athens' history, and Mykonos' charm.</p>
+                        <div class="country-meta">
+                            <span>Capital: Athens</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="greece.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 6: Portugal -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1513640689029-5d0c0aad8f8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Portugal+Image'" alt="Portugal">
+                    </div>
+                    <div class="country-info">
+                        <h3>Portugal</h3>
+                        <p>Land of explorers and golden beaches. Visit Lisbon, Porto, and the Algarve coastline.</p>
+                        <div class="country-meta">
+                            <span>Capital: Lisbon</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="portugal.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 7: Netherlands -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Netherlands+Image'" alt="Netherlands">
+                    </div>
+                    <div class="country-info">
+                        <h3>Netherlands</h3>
+                        <p>Country of canals, tulips, and cycling. Explore Amsterdam, Rotterdam, and the windmills.</p>
+                        <div class="country-meta">
+                            <span>Capital: Amsterdam</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="netherlands.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 8: Switzerland -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Switzerland+Image'" alt="Switzerland">
+                    </div>
+                    <div class="country-info">
+                        <h3>Switzerland</h3>
+                        <p>Alpine beauty and precision. Discover Zurich, Geneva, and the majestic Swiss Alps.</p>
+                        <div class="country-meta">
+                            <span>Capital: Bern</span>
+                            <span>Currency: Swiss Franc</span>
+                        </div>
+                        <a href="switzerland.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 9: Austria -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Austria+Image'" alt="Austria">
+                    </div>
+                    <div class="country-info">
+                        <h3>Austria</h3>
+                        <p>Imperial history and musical heritage. Visit Vienna, Salzburg, and the Danube Valley.</p>
+                        <div class="country-meta">
+                            <span>Capital: Vienna</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="austria.html" class="btn">Discover</a>
+                    </div>
+                </div>
+
+                <!-- Country 10: Belgium -->
+                <div class="country-card">
+                    <div class="country-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Belgium+Image'" alt="Belgium">
+                    </div>
+                    <div class="country-info">
+                        <h3>Belgium</h3>
+                        <p>Medieval towns, chocolates, and beers. Explore Brussels, Bruges, and Antwerp.</p>
+                        <div class="country-meta">
+                            <span>Capital: Brussels</span>
+                            <span>Currency: Euro</span>
+                        </div>
+                        <a href="belgium.html" class="btn">Discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classic Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#countries">Countries</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Countries</h3>
+                    <ul>
+                        <li><a href="italy.html">Italy</a></li>
+                        <li><a href="france.html">France</a></li>
+                        <li><a href="spain.html">Spain</a></li>
+                        <li><a href="germany.html">Germany</a></li>
+                        <li><a href="greece.html">Greece</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Travel Tips</a></li>
+                        <li><a href="#">Visa Requirements</a></li>
+                        <li><a href="#">Best Times to Visit</a></li>
+                        <li><a href="#">Travel Costs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@eurovista.com</li>
+                        <li>Phone: +123456789</li>
+                        <li>
+                            <a href="#">Facebook</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EuroVista. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
