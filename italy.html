@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italy | EuroVista</title>
+    <title>Italy | EuroVista Classic Travel Guide</title>
     <style>
-        /* أنماط الصفحة الرئيسية */
+        /* Consistent Classic Styling */
         * {
             margin: 0;
             padding: 0;
@@ -32,6 +32,7 @@
             padding: 0 15px;
         }
         
+        /* Classic Header (Same as Homepage) */
         header {
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -75,191 +76,240 @@
             color: #8b6b4a;
         }
         
-        .btn {
-            display: inline-block;
-            background-color: #8b6b4a;
+        /* Country Hero Section */
+        .country-hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
             color: white;
-            padding: 12px 30px;
-            border-radius: 2px;
-            text-decoration: none;
-            font-size: 16px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
+            margin-bottom: 50px;
         }
         
-        .btn:hover {
-            background-color: #6d5338;
+        .country-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
         }
         
+        .country-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .country-hero p {
+            font-size: 18px;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .country-flag {
+            width: 100px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        /* Country Content Layout */
+        .country-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .main-content {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e1e1e1;
+        }
+        
+        .sidebar {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e1e1e1;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #8b6b4a;
+        }
+        
+        /* Quick Facts Styling */
+        .quick-facts {
+            margin-bottom: 40px;
+        }
+        
+        .fact-item {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #e1e1e1;
+        }
+        
+        .fact-label {
+            font-weight: bold;
+            width: 150px;
+            color: #555;
+        }
+        
+        .fact-value {
+            color: #333;
+        }
+        
+        /* Places to Visit */
+        .places-list {
+            margin-top: 30px;
+        }
+        
+        .place-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .place-image {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .place-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .place-card:hover .place-image img {
+            transform: scale(1.05);
+        }
+        
+        .place-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .place-info p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Sidebar Widgets */
+        .widget {
+            margin-bottom: 30px;
+        }
+        
+        .widget:last-child {
+            margin-bottom: 0;
+        }
+        
+        .widget ul {
+            list-style: none;
+        }
+        
+        .widget li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #e1e1e1;
+        }
+        
+        .widget li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        /* Classic Footer (Same as Homepage) */
         footer {
             background-color: #2c3e50;
             color: #d9d9d9;
             padding: 60px 0 30px;
         }
         
-        /* أنماط صفحة الدولة */
-        .country-header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        .country-header h1 {
-            font-size: 48px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .country-content {
+        .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .cultural-info, .historical-sites, .hotels {
             margin-bottom: 40px;
         }
         
-        .cultural-info h2, .historical-sites h2, .hotels h2, .map-container h2 {
-            font-size: 28px;
+        .footer-column h3 {
+            font-size: 18px;
             margin-bottom: 20px;
-            color: #2c3e50;
-            border-bottom: 2px solid #8b6b4a;
-            padding-bottom: 10px;
+            color: #fff;
+            letter-spacing: 1px;
         }
         
-        .map-container {
-            margin-bottom: 40px;
-        }
-        
-        #country-map {
-            height: 500px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        .hotel-card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .hotel-card h3 {
-            color: #8b6b4a;
-            margin-bottom: 10px;
-        }
-        
-        .hotel-rating {
-            color: #f39c12;
-            margin-bottom: 10px;
-        }
-        
-        .sidebar {
-            background: #f5f5f5;
-            padding: 30px;
-            border-radius: 4px;
-        }
-        
-        .quick-facts h3 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .quick-facts ul {
+        .footer-column ul {
             list-style: none;
         }
         
-        .quick-facts ul li {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ddd;
+        .footer-column ul li {
+            margin-bottom: 12px;
         }
         
-        .quick-facts ul li strong {
-            display: inline-block;
-            width: 120px;
-            color: #555;
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
         }
         
-        /* Responsive */
+        .footer-column ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            border-top: 1px solid #3d5166;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .country-content {
                 grid-template-columns: 1fr;
             }
             
-            .country-header h1 {
-                font-size: 36px;
+            .place-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .place-image {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 15px;
             }
         }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <script>
-        function initMap() {
-            const map = new google.maps.Map(document.getElementById("country-map"), {
-                center: { lat: 41.8719, lng: 12.5674 },
-                zoom: 6,
-            });
-            
-            const locations = [
-                {lat: 41.9028, lng: 12.4964, title: "Rome"},
-                {lat: 45.4408, lng: 12.3155, title: "Venice"},
-                {lat: 43.7696, lng: 11.2558, title: "Florence"},
-                {lat: 40.8518, lng: 14.2681, title: "Naples"},
-                {lat: 45.4642, lng: 9.1900, title: "Milan"}
-            ];
-            
-            locations.forEach(location => {
-                new google.maps.Marker({
-                    position: location,
-                    map: map,
-                    title: location.title
-                });
-            });
-            
-            const directionsService = new google.maps.DirectionsService();
-            const directionsRenderer = new google.maps.DirectionsRenderer();
-            directionsRenderer.setMap(map);
-            
-            document.getElementById("get-directions").addEventListener("click", function() {
-                calculateAndDisplayRoute(directionsService, directionsRenderer);
-            });
-        }
-        
-        function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-            const start = document.getElementById("start").value;
-            const end = document.getElementById("end").value;
-            
-            directionsService.route(
-                {
-                    origin: start,
-                    destination: end,
-                    travelMode: google.maps.TravelMode.DRIVING,
-                },
-                (response, status) => {
-                    if (status === "OK") {
-                        directionsRenderer.setDirections(response);
-                        const route = response.routes[0];
-                        const duration = route.legs[0].duration.text;
-                        document.getElementById("travel-time").textContent = `Estimated travel time: ${duration}`;
-                    } else {
-                        window.alert("Directions request failed due to " + status);
-                    }
-                }
-            );
-        }
-    </script>
 </head>
 <body>
+    <!-- Classic Header -->
     <header>
         <div class="container">
             <nav>
@@ -267,124 +317,151 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#countries">Countries</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="country-header">
-        <h1>Italy</h1>
-    </div>
+    <!-- Country Hero Banner -->
+    <section class="country-hero">
+        <div class="country-hero-content">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png" alt="Flag of Italy" class="country-flag">
+            <h1>Italy</h1>
+            <p>Where art, history, and la dolce vita come together in perfect harmony</p>
+        </div>
+    </section>
 
+    <!-- Main Country Content -->
     <div class="container">
         <div class="country-content">
-            <main>
-                <section class="cultural-info">
-                    <h2>Cultural Information</h2>
-                    <p>Italy is a country in Southern Europe with a rich cultural heritage that has influenced the world for centuries. Known as the birthplace of the Renaissance, Italy boasts an unparalleled collection of art, architecture, and historical sites.</p>
-                    
-                    <h3>Language</h3>
-                    <p>The official language is Italian, with many regional dialects. English is widely understood in tourist areas.</p>
-                    
-                    <h3>Cuisine</h3>
-                    <p>Italian cuisine is famous worldwide, with regional specialties like pizza from Naples, pasta from Bologna, and risotto from Milan. Italian meals are important social events, often lasting several hours.</p>
-                    
-                    <h3>Traditions</h3>
-                    <p>Italians celebrate numerous festivals throughout the year, including Carnevale in Venice, the Palio horse race in Siena, and various religious processions. Family is central to Italian culture.</p>
+            <div class="main-content">
+                <!-- Quick Facts Section -->
+                <section class="quick-facts">
+                    <h2 class="section-title">At a Glance</h2>
+                    <div class="fact-item">
+                        <span class="fact-label">Capital:</span>
+                        <span class="fact-value">Rome</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Language:</span>
+                        <span class="fact-value">Italian</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Currency:</span>
+                        <span class="fact-value">Euro (€)</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Population:</span>
+                        <span class="fact-value">60 million</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Best Time to Visit:</span>
+                        <span class="fact-value">April-June, September-October</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-label">Famous For:</span>
+                        <span class="fact-value">Renaissance art, pasta, wine, fashion, ancient history</span>
+                    </div>
                 </section>
-                
-                <section class="historical-sites">
-                    <h2>Historical Sites</h2>
-                    
-                    <h3>Colosseum, Rome</h3>
-                    <p>The iconic amphitheater that could hold up to 80,000 spectators for gladiatorial contests and public spectacles.</p>
-                    
-                    <h3>Pompeii</h3>
-                    <p>The ancient Roman city preserved under volcanic ash from the eruption of Mount Vesuvius in 79 AD.</p>
-                    
-                    <h3>Leaning Tower of Pisa</h3>
-                    <p>The famous bell tower known for its unintended tilt, located in the Piazza dei Miracoli.</p>
-                    
-                    <h3>Florence Cathedral</h3>
-                    <p>A masterpiece of Gothic architecture with its iconic dome engineered by Filippo Brunelleschi.</p>
-                </section>
-                
-                <section class="map-container">
-                    <h2>Map & Directions</h2>
-                    <div id="country-map"></div>
-                    
-                    <div style="margin-top: 20px;">
-                        <h3>Get Directions</h3>
-                        <div>
-                            <label for="start">From:</label>
-                            <input type="text" id="start" placeholder="Your location">
-                            
-                            <label for="end">To:</label>
-                            <input type="text" id="end" placeholder="Destination in Italy">
-                            
-                            <button id="get-directions" class="btn">Get Directions</button>
-                            <div id="travel-time" style="margin-top: 10px;"></div>
+
+                <!-- Places to Visit -->
+                <section class="places-to-visit">
+                    <h2 class="section-title">Must-Visit Destinations</h2>
+                    <div class="places-list">
+                        <div class="place-card">
+                            <div class="place-image">
+                                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rome">
+                            </div>
+                            <div class="place-info">
+                                <h3>Rome</h3>
+                                <p>The Eternal City, home to ancient wonders like the Colosseum and Roman Forum, Vatican City's St. Peter's Basilica, and the romantic Trevi Fountain.</p>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <div class="place-image">
+                                <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Venice">
+                            </div>
+                            <div class="place-info">
+                                <h3>Venice</h3>
+                                <p>The floating city of canals, gondolas, and stunning architecture. Don't miss St. Mark's Square and the Grand Canal.</p>
+                            </div>
+                        </div>
+                        <div class="place-card">
+                            <div class="place-image">
+                                <img src="https://images.unsplash.com/photo-1492962827063-e5ea0d8c01f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Florence">
+                            </div>
+                            <div class="place-info">
+                                <h3>Florence</h3>
+                                <p>Cradle of the Renaissance, housing Michelangelo's David, the Uffizi Gallery, and the magnificent Duomo cathedral.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
-                
-                <section class="hotels">
-                    <h2>Recommended Hotels</h2>
+
+                <!-- Culture Section -->
+                <section class="culture">
+                    <h2 class="section-title">Culture & Traditions</h2>
+                    <p>Italy's cultural legacy spans over 3,000 years, from the Etruscans to the Roman Empire and the Renaissance. This heritage is visible in every aspect of Italian life, from its world-class art and architecture to its celebrated cuisine.</p>
                     
-                    <div class="hotel-card">
-                        <h3>Hotel Hassler Roma</h3>
-                        <div class="hotel-rating">★★★★★</div>
-                        <p>Located at the top of the Spanish Steps, this luxury hotel offers stunning views of Rome.</p>
-                        <p>Price: €400-€1000 per night</p>
-                    </div>
-                    
-                    <div class="hotel-card">
-                        <h3>Belmond Hotel Cipriani, Venice</h3>
-                        <div class="hotel-rating">★★★★★</div>
-                        <p>A luxurious retreat with a private gondola dock and saltwater pool overlooking the lagoon.</p>
-                        <p>Price: €500-€1200 per night</p>
-                    </div>
-                    
-                    <div class="hotel-card">
-                        <h3>Hotel Brunelleschi, Florence</h3>
-                        <div class="hotel-rating">★★★★</div>
-                        <p>Set in a historic Byzantine tower, this hotel is steps away from the Duomo.</p>
-                        <p>Price: €250-€600 per night</p>
-                    </div>
-                </section>
-            </main>
-            
-            <aside class="sidebar">
-                <div class="quick-facts">
-                    <h3>Quick Facts</h3>
-                    <ul>
-                        <li><strong>Capital:</strong> Rome</li>
-                        <li><strong>Population:</strong> 60 million</li>
-                        <li><strong>Currency:</strong> Euro (€)</li>
-                        <li><strong>Language:</strong> Italian</li>
-                        <li><strong>Time Zone:</strong> CET (UTC+1)</li>
-                        <li><strong>Best Time to Visit:</strong> April-June, September-October</li>
-                        <li><strong>Visa Requirements:</strong> Schengen Visa</li>
-                        <li><strong>Emergency Number:</strong> 112</li>
+                    <h3>Italian Cuisine</h3>
+                    <p>More than just pizza and pasta, Italian food varies dramatically by region. In the north, enjoy creamy risottos and polenta, while the south offers sun-ripened tomatoes and olive oil. Key culinary experiences include:</p>
+                    <ul style="margin: 15px 0 15px 20px; color: #666;">
+                        <li>Authentic Neapolitan pizza in Naples</li>
+                        <li>Fresh pesto in Liguria</li>
+                        <li>Balsamic vinegar in Modena</li>
+                        <li>Wine tasting in Tuscany</li>
                     </ul>
-                </div>
-                
-                <div style="margin-top: 30px;">
-                    <h3>Travel Tips</h3>
+                    
+                    <h3>Local Customs</h3>
+                    <p>Italians are known for their warm hospitality and expressive communication style. Important customs include:</p>
+                    <ul style="margin: 15px 0 15px 20px; color: #666;">
+                        <li>The evening passeggiata (leisurely stroll)</li>
+                        <li>Dining as a lengthy social event</li>
+                        <li>Greetings with kisses on both cheeks</li>
+                        <li>Dressing well in cities and churches</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="widget">
+                    <h2 class="section-title">Travel Tips</h2>
                     <ul>
+                        <li>Learn basic Italian phrases - even "grazie" (thank you) goes a long way</li>
                         <li>Validate train tickets before boarding</li>
                         <li>Dress modestly when visiting churches</li>
-                        <li>Try the local aperitivo tradition</li>
-                        <li>Learn basic Italian phrases</li>
-                        <li>Be aware of pickpockets in tourist areas</li>
+                        <li>Expect to pay a coperto (cover charge) at restaurants</li>
+                        <li>Drink the excellent tap water instead of buying bottled</li>
                     </ul>
                 </div>
-            </aside>
+
+                <div class="widget">
+                    <h2 class="section-title">When to Visit</h2>
+                    <p>Best seasons:</p>
+                    <ul>
+                        <li><strong>Spring (Apr-Jun):</strong> Mild weather, flowers blooming</li>
+                        <li><strong>Fall (Sep-Oct):</strong> Harvest season, fewer crowds</li>
+                    </ul>
+                    <p style="margin-top: 10px;">Avoid August when many Italians take holiday and cities can feel deserted.</p>
+                </div>
+
+                <div class="widget">
+                    <h2 class="section-title">Average Costs</h2>
+                    <ul>
+                        <li><strong>Budget:</strong> €70-100/day</li>
+                        <li><strong>Mid-range:</strong> €100-200/day</li>
+                        <li><strong>Luxury:</strong> €200+/day</li>
+                    </ul>
+                    <p style="margin-top: 10px;">Prices are per person and include accommodation, meals, and local transportation.</p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Classic Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -393,12 +470,12 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#countries">Countries</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Countries</h3>
+                    <h3>European Destinations</h3>
                     <ul>
                         <li><a href="italy.html">Italy</a></li>
                         <li><a href="france.html">France</a></li>
@@ -408,29 +485,29 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Information</h3>
+                    <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Travel Tips</a></li>
-                        <li><a href="#">Visa Requirements</a></li>
-                        <li><a href="#">Best Times to Visit</a></li>
-                        <li><a href="#">Travel Costs</a></li>
+                        <li><a href="#">Travel Guides</a></li>
+                        <li><a href="#">Visa Information</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">Cultural Etiquette</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li>Email: info@eurovista.com</li>
-                        <li>Phone: +123456789</li>
+                        <li>Email: italy@eurovista.com</li>
+                        <li>Phone: +39 123 456 789</li>
                         <li>
                             <a href="#">Facebook</a> | 
-                            <a href="#">Twitter</a> | 
-                            <a href="#">Instagram</a>
+                            <a href="#">Instagram</a> | 
+                            <a href="#">Twitter</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 EuroVista. All Rights Reserved.</p>
+                <p>&copy; 2023 EuroVista Classic Travel Guides. All rights reserved.</p>
             </div>
         </div>
     </footer>
